@@ -42,7 +42,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Slots Available :"
+            android:text="Slots available:"
             android:textAppearance="@style/Sub_Title"
             android:textSize="20sp"
             android:layout_margin="10dp"
