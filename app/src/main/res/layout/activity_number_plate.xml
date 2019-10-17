@@ -39,6 +39,16 @@
         android:id="@+id/slot_availability"
         />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Slots Available :"
+            android:textAppearance="@style/Sub_Title"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:id="@+id/slot_vacant"
+            />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,13 +62,13 @@
         android:text="Enter License Plate Number"
         android:textAppearance="@style/Sub_Title"
         android:textSize="18sp"
-        android:layout_margin="10dp"
+
         />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+
             android:id="@+id/license_num"
             android:hint="eg DL3CAB0333"/>
 

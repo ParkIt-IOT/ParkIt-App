@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.aryanganotra.parkit.R;
 import com.aryanganotra.parkit.Singleton.SingletonClient;
@@ -22,6 +23,7 @@ public class NumberPlate extends AppCompatActivity {
 
         Button submt = findViewById(R.id.submt_btn);
         final EditText licence_num = findViewById(R.id.license_num);
+        final TextView vacant_tv = findViewById(R.id.slot_vacant);
         submt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,8 +38,13 @@ public class NumberPlate extends AppCompatActivity {
 
         SingletonClient.getInstance().getVacant().observe(this, new Observer<Integer>() {
             @Override
-            public void onChanged(Integer integer) {
-                Log.i("ConnectionSocket-Vacant",String.valueOf(integer));
+            public void onChanged(final Integer integer) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        vacant_tv.setText("Slots available: "+String.valueOf(integer));
+                    }
+                });
             }
         });
     }
