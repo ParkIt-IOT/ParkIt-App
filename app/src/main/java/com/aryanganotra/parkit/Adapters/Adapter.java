@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.aryanganotra.parkit.Model.Place;
 import com.aryanganotra.parkit.R;
+import com.aryanganotra.parkit.Screens.NumberPlate;
 
 import java.util.ArrayList;
 
@@ -71,7 +72,7 @@ public class Adapter extends BaseAdapter implements Filterable {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, context.getClass()));
+                context.startActivity(new Intent(context, NumberPlate.class));
                 Log.i("Selected","yes");
             }
         });
