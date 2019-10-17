@@ -5,6 +5,7 @@ import android.util.Log;
 import com.aryanganotra.parkit.Singleton.SingletonClient;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,6 +18,7 @@ public class Client implements Runnable {
     private BufferedReader br;
     private String ip, msg;
     private int port;
+    private DataOutputStream out;
 
     public Client(String ip, int port){
         this.ip = ip;
@@ -39,13 +41,17 @@ public class Client implements Runnable {
                 }
             }
         try {
+            inr = new InputStreamReader(sock.getInputStream());
+            out = new DataOutputStream(sock.getOutputStream());
             while (true) {
-                inr = new InputStreamReader(sock.getInputStream());
                 br = new BufferedReader(inr);
                 msg = br.readLine();
                 Log.i("Message",msg);
                 if (msg.startsWith("vacant")){
                     SingletonClient.getInstance().getVacant().postValue(Integer.valueOf(msg.substring(7)));
+                }
+                if(SingletonClient.getInstance().getLicense_num().getValue().startsWith("license:")){
+                    out.writeBytes(SingletonClient.getInstance().getLicense_num().getValue());
                 }
                 if(sock.isClosed() || !sock.isConnected())
                 {

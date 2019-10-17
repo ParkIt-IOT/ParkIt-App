@@ -9,8 +9,14 @@ public class SingletonClient {
 
     private static SingletonClient instance = null;
     private MutableLiveData<Integer> vacant = new MutableLiveData<>();
+    private MutableLiveData<String> license_num = new MutableLiveData<>();
+
     public MutableLiveData<Integer> getVacant () {
         return vacant;
+    }
+
+    public MutableLiveData<String> getLicense_num() {
+        return license_num;
     }
 
     public static SingletonClient getInstance(){

@@ -28,7 +28,7 @@ public class NumberPlate extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(licence_num.getText()!=null && !licence_num.getText().toString().isEmpty()){
-
+                    SingletonClient.getInstance().getLicense_num().setValue("license:"+licence_num.getText().toString());
                 }
                 else {
                     licence_num.setError("License plate number can't be empty");
