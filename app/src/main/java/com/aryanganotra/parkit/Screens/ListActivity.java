@@ -30,6 +30,8 @@ public class ListActivity extends AppCompatActivity implements SearchView.OnQuer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_places_list);
 
+       // getSupportActionBar().setTitle("Search");
+
         sw = (SearchView) findViewById(R.id.sw);
         lw = (ListView) findViewById(R.id.listView1);
 
