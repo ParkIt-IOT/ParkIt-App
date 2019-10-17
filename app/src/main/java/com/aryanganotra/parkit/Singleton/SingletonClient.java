@@ -2,6 +2,7 @@ package com.aryanganotra.parkit.Singleton;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 
 import com.aryanganotra.parkit.Socket.Client;
 
@@ -28,8 +29,16 @@ public class SingletonClient {
 
     private SingletonClient(){
 
-        Client client = new Client("192.168.3.113",10000);
+        final Client client = new Client("192.168.3.113",10000);
         Thread th = new Thread(client);
         th.start();
+
+        getLicense_num().observeForever(new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                client.write(s);
+            }
+        });
     }
+
 }

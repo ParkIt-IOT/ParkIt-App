@@ -1,6 +1,11 @@
 package com.aryanganotra.parkit.Socket;
 
+import android.app.Application;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
+
+import androidx.lifecycle.Observer;
 
 import com.aryanganotra.parkit.Singleton.SingletonClient;
 
@@ -11,6 +16,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.logging.LogRecord;
 
 public class Client implements Runnable {
     private Socket sock = null;
@@ -28,6 +34,7 @@ public class Client implements Runnable {
     @Override
     public void run() {
 
+
             while(true) {
                 try {
                     sock = new Socket(InetAddress.getByName(ip), port);
@@ -43,7 +50,40 @@ public class Client implements Runnable {
         try {
             inr = new InputStreamReader(sock.getInputStream());
             out = new DataOutputStream(sock.getOutputStream());
-            while (true) {
+            Thread thread1 = new Thread(){
+                @Override
+                public void run() {
+                    super.run();
+                    try {
+                        while (true) {
+                            br = new BufferedReader(inr);
+
+                            msg = br.readLine();
+
+                            Log.i("Message", msg);
+                            if (msg.startsWith("vacant")) {
+                                SingletonClient.getInstance().getVacant().postValue(Integer.valueOf(msg.substring(7)));
+                            }
+
+                        }
+                    }
+                    catch (IOException e) {
+                        e.printStackTrace();
+                        try {
+                            if(sock!=null && !sock.isClosed())
+                                sock.close();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+
+                    }
+                }
+            };
+
+            thread1.start();
+            //thread2.start();
+
+            /*while (true) {
                 br = new BufferedReader(inr);
                 msg = br.readLine();
                 Log.i("Message",msg);
@@ -51,6 +91,7 @@ public class Client implements Runnable {
                     SingletonClient.getInstance().getVacant().postValue(Integer.valueOf(msg.substring(7)));
                 }
                 if(SingletonClient.getInstance().getLicense_num().getValue().startsWith("license:")){
+                    Log.i("Called","yes");
                     out.writeBytes(SingletonClient.getInstance().getLicense_num().getValue());
                 }
                 if(sock.isClosed() || !sock.isConnected())
@@ -61,6 +102,8 @@ public class Client implements Runnable {
             }
             if (!sock.isClosed())
             sock.close();
+
+             */
         }
         catch (Exception e)
         {
@@ -72,5 +115,24 @@ public class Client implements Runnable {
                 ex.printStackTrace();
             }
         }
+    }
+
+    public void write(final String msg) {
+        Thread thread = new Thread(){
+            @Override
+            public void run() {
+                if(out!=null){
+                    try {
+
+                        out.write(msg.getBytes());
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+
+        thread.start();
     }
 }

@@ -28,7 +28,9 @@ public class NumberPlate extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(licence_num.getText()!=null && !licence_num.getText().toString().isEmpty()){
+
                     SingletonClient.getInstance().getLicense_num().setValue("license:"+licence_num.getText().toString());
+                    //Log.i("Called",SingletonClient.getInstance().getLicense_num().getValue());
                 }
                 else {
                     licence_num.setError("License plate number can't be empty");
@@ -45,6 +47,13 @@ public class NumberPlate extends AppCompatActivity {
                         vacant_tv.setText("Slots available: "+String.valueOf(integer));
                     }
                 });
+            }
+        });
+
+        SingletonClient.getInstance().getLicense_num().observeForever(new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                Log.i("Called",s);
             }
         });
     }
