@@ -5,4 +5,5 @@
     <color name="colorAccent">#eeff41</color>
     <color name="windowBackground">#212121</color>
     <color name="textColorPrimary">#FFFFFF</color>
+    <color name="hint">#9e9e9e</color>
 </resources>

@@ -2,6 +2,8 @@ package com.aryanganotra.parkit.Socket;
 
 import android.util.Log;
 
+import com.aryanganotra.parkit.Singleton.SingletonClient;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -42,6 +44,9 @@ public class Client implements Runnable {
                 br = new BufferedReader(inr);
                 msg = br.readLine();
                 Log.i("Message",msg);
+                if (msg.startsWith("vacant")){
+                    SingletonClient.getInstance().getVacant().postValue(Integer.valueOf(msg.substring(7)));
+                }
                 if(sock.isClosed() || !sock.isConnected())
                 {
                     Log.i("ConnectionSocket","Disconnected");
