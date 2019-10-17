@@ -48,17 +48,19 @@ public class Client implements Runnable {
                 }
             }
         try {
-            inr = new InputStreamReader(sock.getInputStream());
-            out = new DataOutputStream(sock.getOutputStream());
+
+
             Thread thread1 = new Thread(){
                 @Override
                 public void run() {
                     super.run();
                     try {
                         while (true) {
+                            inr = new InputStreamReader(sock.getInputStream());
                             br = new BufferedReader(inr);
 
                             msg = br.readLine();
+
 
                             Log.i("Message", msg);
                             if (msg.startsWith("vacant")) {
@@ -121,14 +123,18 @@ public class Client implements Runnable {
         Thread thread = new Thread(){
             @Override
             public void run() {
-                if(out!=null){
-                    try {
+                try {
+                if (sock != null) {
+                    out = new DataOutputStream(sock.getOutputStream());
+                    if (out != null) {
+                        
+                            out.write(msg.getBytes());
 
-                        out.write(msg.getBytes());
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        }
                     }
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         };
