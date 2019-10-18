@@ -4,6 +4,16 @@ public class Details {
 
     String place, time, id, slot_code;
 
+    public double getFinal_time() {
+        return final_time;
+    }
+
+    public void setFinal_time(double final_time) {
+        this.final_time = final_time;
+    }
+
+    double final_time;
+
     public Details(){
 
     }
