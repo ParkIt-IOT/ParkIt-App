@@ -26,6 +26,23 @@
         android:layout_centerInParent="true"
         android:src="@drawable/images"/>
 
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progressTint="@color/textColorPrimary"
+        android:indeterminate="true"
+        android:indeterminateBehavior="repeat"
+        android:indeterminateOnly="true"
+        android:id="@+id/progress_bar"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+
+
+        />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,6 +57,7 @@
         android:background="@color/colorPrimary"
         android:textColor="@color/textColorPrimary"
         android:textStyle="bold"
+        android:visibility="gone"
 
         />
 
