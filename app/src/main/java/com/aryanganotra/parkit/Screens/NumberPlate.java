@@ -21,6 +21,8 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class NumberPlate extends AppCompatActivity {
 
+    private String details;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,6 +108,8 @@ public class NumberPlate extends AppCompatActivity {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+                details = result.getContents();
+
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
