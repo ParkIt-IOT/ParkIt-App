@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Screens.DetailsActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Booking Details"
+        android:textAppearance="@style/LoginTitle"
+        android:layout_alignParentTop="true"
+        android:id="@+id/title"
+        android:textSize="40sp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        android:gravity="center"
+        android:layout_above="@+id/ll2"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Booking Confirmed"
+        android:textAppearance="@style/Sub_Title"
+        android:textAlignment="center"
+        android:textSize="29sp"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+
+        android:textColor="@color/green"
+        android:id="@+id/slot_availability"
+        />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Slots available:"
+            android:textAppearance="@style/Sub_Title"
+            android:textSize="20sp"
+
+            android:layout_margin="10dp"
+            android:id="@+id/place"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Slots available:"
+            android:textAppearance="@style/Sub_Title"
+            android:textSize="20sp"
+
+            android:layout_margin="10dp"
+            android:id="@+id/license_num"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Slots available:"
+            android:textAppearance="@style/Sub_Title"
+            android:textSize="20sp"
+
+            android:layout_margin="10dp"
+            android:id="@+id/slot_code"
+            />
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

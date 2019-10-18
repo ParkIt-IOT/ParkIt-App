@@ -6,4 +6,5 @@
     <color name="windowBackground">#212121</color>
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="hint">#9e9e9e</color>
+    <color name="green">#1de9b6</color>
 </resources>
