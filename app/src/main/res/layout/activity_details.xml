@@ -76,7 +76,6 @@
             android:text="Slot Code:"
             android:textAppearance="@style/Sub_Title"
             android:textSize="20sp"
-
             android:layout_margin="10dp"
             android:id="@+id/slot_code"
             />
@@ -84,6 +83,8 @@
 
 
     </LinearLayout>
+
+
 
 
 </RelativeLayout>

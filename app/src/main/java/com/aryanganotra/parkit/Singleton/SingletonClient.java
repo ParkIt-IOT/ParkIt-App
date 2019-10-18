@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
+import com.aryanganotra.parkit.Model.Details;
 import com.aryanganotra.parkit.Socket.Client;
 
 public class SingletonClient {
@@ -13,6 +14,15 @@ public class SingletonClient {
     private MutableLiveData<String> license_num = new MutableLiveData<>();
     private MutableLiveData<String> license_num_status = new MutableLiveData<>();
     private MutableLiveData<Boolean> connection_status = new MutableLiveData<>();
+    private Details details = new Details();
+
+    public Details getDetails(){
+        return details;
+    }
+
+    public void setDetails(Details details){
+        this.details = details;
+    }
 
     public MutableLiveData<Boolean> getConnectionStatus () {
         return connection_status;

@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.aryanganotra.parkit.Model.Details;
 import com.aryanganotra.parkit.R;
+import com.aryanganotra.parkit.Singleton.SingletonClient;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
@@ -34,6 +35,8 @@ public class DetailsActivity extends AppCompatActivity {
        // mCvCountdownView = (CountdownView)findViewById(R.id.cd);
         chronometer = findViewById(R.id.chronometer);
 
+        
+
 
 
 
@@ -42,6 +45,7 @@ public class DetailsActivity extends AppCompatActivity {
         try {
             Gson g = new Gson();
             Details details = g.fromJson(content, Details.class);
+            SingletonClient.getInstance().setDetails(details);
 
            /* JSONObject json = new JSONObject(content);
             String place_str = json.getString("place");
@@ -54,7 +58,7 @@ public class DetailsActivity extends AppCompatActivity {
             place.setText("Place-Name: "+details.getPlace());
             code.setText("Slot-Code: "+details.getSlot_code());
             String[] strings = (details.getTime().split("/"))[1].split(":");
-            double time = Float.valueOf(strings[0])*3600 + Float.valueOf(strings[1])*60 ;
+            //double time = Float.valueOf(strings[0])*3600 + Float.valueOf(strings[1])*60 ;
             //mCvCountdownView.start((long) time);
             license.setText(license_num);
             chronometer.start();

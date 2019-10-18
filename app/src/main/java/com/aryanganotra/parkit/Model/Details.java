@@ -4,6 +4,10 @@ public class Details {
 
     String place, time, id, slot_code;
 
+    public Details(){
+
+    }
+
     public Details(String place, String time, String id, String slot_code) {
         this.place = place;
         this.time = time;
