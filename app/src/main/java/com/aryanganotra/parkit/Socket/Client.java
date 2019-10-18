@@ -61,6 +61,7 @@ public class Client implements Runnable {
                         SingletonClient.getInstance().getVacant().postValue(Integer.valueOf(msg.substring(7)));
                     }
                     if (msg.startsWith("license_status")){
+
                         if(!msg.equals(SingletonClient.getInstance().getLicense_num_status().getValue()))
                             SingletonClient.getInstance().getLicense_num_status().postValue(msg.substring(15));
                     }

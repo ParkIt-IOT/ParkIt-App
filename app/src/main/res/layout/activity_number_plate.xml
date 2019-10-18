@@ -24,6 +24,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/title"
         android:gravity="center"
+        android:layout_above="@+id/ll2"
         android:orientation="vertical">
 
     <TextView
@@ -35,6 +36,7 @@
         android:textSize="29sp"
         android:layout_margin="10dp"
         android:textStyle="bold"
+
         android:textColor="@color/colorPrimary"
         android:id="@+id/slot_availability"
         />
@@ -45,6 +47,7 @@
             android:text="Slots available:"
             android:textAppearance="@style/Sub_Title"
             android:textSize="20sp"
+
             android:layout_margin="10dp"
             android:id="@+id/slot_vacant"
             />
@@ -83,9 +86,44 @@
 
     </LinearLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/ll2"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/textColorPrimary"
+            android:indeterminate="true"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateOnly="true"
+            android:id="@+id/progress_bar"
+            android:visibility="gone"
+            android:layout_gravity="center"
+
+
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SCAN"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@color/colorPrimary"
+            android:visibility="gone"
+            android:id="@+id/qr_btn"/>
 
 
     </LinearLayout>
+
+
 
 
 </RelativeLayout>
