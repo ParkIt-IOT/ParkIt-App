@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aryanganotra.parkit.R;
 import com.aryanganotra.parkit.Singleton.SingletonClient;
@@ -64,7 +65,8 @@ public class NumberPlate extends AppCompatActivity {
         SingletonClient.getInstance().getLicense_num_status().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-
+                Toast.makeText(NumberPlate.this,s, Toast.LENGTH_LONG).show();
+                Log.i("ConnectionSocket",s);
             }
         });
 
