@@ -49,40 +49,41 @@ public class Client implements Runnable {
             }
         try {
 
+            try {
+                inr = new InputStreamReader(sock.getInputStream());
+                while (true) {
+                    br = new BufferedReader(inr);
+
+                    msg = br.readLine();
+                    Log.i("Message", msg);
+                    if (msg.startsWith("vacant")) {
+                        if(!msg.equals(SingletonClient.getInstance().getVacant().getValue()))
+                        SingletonClient.getInstance().getVacant().postValue(Integer.valueOf(msg.substring(7)));
+                    }
+
+                }
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                try {
+                    if(sock!=null && !sock.isClosed())
+                        sock.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+
 
             Thread thread1 = new Thread(){
                 @Override
                 public void run() {
                     super.run();
-                    try {
-                        while (true) {
-                            inr = new InputStreamReader(sock.getInputStream());
-                            br = new BufferedReader(inr);
 
-                            msg = br.readLine();
-
-
-                            Log.i("Message", msg);
-                            if (msg.startsWith("vacant")) {
-                                SingletonClient.getInstance().getVacant().postValue(Integer.valueOf(msg.substring(7)));
-                            }
-
-                        }
-                    }
-                    catch (IOException e) {
-                        e.printStackTrace();
-                        try {
-                            if(sock!=null && !sock.isClosed())
-                                sock.close();
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
-
-                    }
                 }
             };
 
-            thread1.start();
+            //thread1.start();
             //thread2.start();
 
             /*while (true) {
@@ -127,7 +128,7 @@ public class Client implements Runnable {
                 if (sock != null) {
                     out = new DataOutputStream(sock.getOutputStream());
                     if (out != null) {
-                        
+
                             out.write(msg.getBytes());
 
                         }

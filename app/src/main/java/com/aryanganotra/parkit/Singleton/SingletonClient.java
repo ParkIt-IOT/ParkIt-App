@@ -11,6 +11,7 @@ public class SingletonClient {
     private static SingletonClient instance = null;
     private MutableLiveData<Integer> vacant = new MutableLiveData<>();
     private MutableLiveData<String> license_num = new MutableLiveData<>();
+    private MutableLiveData<String> license_num_status = new MutableLiveData<>();
 
     public MutableLiveData<Integer> getVacant () {
         return vacant;
@@ -20,6 +21,10 @@ public class SingletonClient {
         return license_num;
     }
 
+    public MutableLiveData<String> getLicense_num_status() {
+        return license_num_status;
+    }
+
     public static SingletonClient getInstance(){
         if (instance == null){
             instance = new SingletonClient();
@@ -27,18 +32,17 @@ public class SingletonClient {
         return instance;
     }
 
+    private Client client = new Client("192.168.3.113",10000);
+
+    public  Client getClient(){
+        return client;
+    }
+
     private SingletonClient(){
 
-        final Client client = new Client("192.168.3.113",10000);
         Thread th = new Thread(client);
         th.start();
 
-        getLicense_num().observeForever(new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                client.write(s);
-            }
-        });
     }
 
 }

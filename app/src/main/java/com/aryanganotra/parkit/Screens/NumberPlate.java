@@ -28,8 +28,12 @@ public class NumberPlate extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(licence_num.getText()!=null && !licence_num.getText().toString().isEmpty()){
-
-                    SingletonClient.getInstance().getLicense_num().setValue("license:"+licence_num.getText().toString());
+                    if(SingletonClient.getInstance().getVacant().getValue()>0) {
+                        SingletonClient.getInstance().getLicense_num().setValue("license:" + licence_num.getText().toString());
+                    }
+                    else{
+                        licence_num.setError("No vacant spaces. Please try later.");
+                    }
                     //Log.i("Called",SingletonClient.getInstance().getLicense_num().getValue());
                 }
                 else {
@@ -50,11 +54,15 @@ public class NumberPlate extends AppCompatActivity {
             }
         });
 
-        SingletonClient.getInstance().getLicense_num().observeForever(new Observer<String>() {
+        SingletonClient.getInstance().getLicense_num().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                Log.i("Called",s);
+                SingletonClient.getInstance().getClient().write(s);
             }
         });
+
+
+
+
     }
 }
