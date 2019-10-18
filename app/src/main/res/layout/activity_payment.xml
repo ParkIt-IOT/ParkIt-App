@@ -17,6 +17,12 @@
         android:textSize="40sp"
         />
 
+    <com.braintreepayments.cardform.view.CardForm
+        android:id="@+id/card_form"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/title"
+        android:layout_height="match_parent" />
+
 
 
 </RelativeLayout>
