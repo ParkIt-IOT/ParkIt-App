@@ -7,7 +7,9 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aryanganotra.parkit.Model.Details;
 import com.aryanganotra.parkit.R;
+import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
@@ -28,14 +30,20 @@ public class DetailsActivity extends AppCompatActivity {
         String content = getIntent().getStringExtra("content");
         String license_num = getIntent().getStringExtra("license_num");
         try {
-            JSONObject json = new JSONObject(content);
+            Gson g = new Gson();
+            Details details = g.fromJson(content, Details.class);
+
+           /* JSONObject json = new JSONObject(content);
             String place_str = json.getString("place");
             String slot_code = json.getString("slot_code");
             String time = json.getString("time");
             String id = json.getString("id");
-            place.setText(place_str);
-            code.setText(slot_code);
+
+            */
+            place.setText(details.getPlace());
+            code.setText(details.getSlot_code());
             license.setText(license_num);
+
         }catch (Exception e)
         {
             Toast.makeText(DetailsActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
