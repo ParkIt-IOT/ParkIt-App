@@ -13,9 +13,12 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
+import cn.iwgang.countdownview.CountdownView;
+
 public class DetailsActivity extends AppCompatActivity {
 
     TextView place, code, license;
+    CountdownView mCvCountdownView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,8 @@ public class DetailsActivity extends AppCompatActivity {
         place = findViewById(R.id.place);
         code = findViewById(R.id.slot_code);
         license = findViewById(R.id.license_num);
+        mCvCountdownView = (CountdownView)findViewById(R.id.cd);
+
 
 
         String content = getIntent().getStringExtra("content");
@@ -42,6 +47,9 @@ public class DetailsActivity extends AppCompatActivity {
             */
             place.setText("Place-Name: "+details.getPlace());
             code.setText("Slot-Code: "+details.getSlot_code());
+            String[] strings = (details.getTime().split("/"))[1].split(":");
+            double time = Float.valueOf(strings[0])*3.6*Math.pow(10,6) + Float.valueOf(strings[1])*60000 ;
+            mCvCountdownView.start((long) time);
             license.setText(license_num);
 
         }catch (Exception e)

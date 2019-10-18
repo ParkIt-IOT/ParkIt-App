@@ -48,6 +48,7 @@ public class SingletonClient {
 
         Thread th = new Thread(client);
         th.start();
+        connection_status.setValue(false);
 
     }
 
