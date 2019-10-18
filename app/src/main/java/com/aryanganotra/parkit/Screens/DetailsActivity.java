@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Chronometer;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +19,8 @@ import cn.iwgang.countdownview.CountdownView;
 public class DetailsActivity extends AppCompatActivity {
 
     TextView place, code, license;
-    CountdownView mCvCountdownView;
+    //CountdownView mCvCountdownView;
+    Chronometer chronometer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,9 @@ public class DetailsActivity extends AppCompatActivity {
         place = findViewById(R.id.place);
         code = findViewById(R.id.slot_code);
         license = findViewById(R.id.license_num);
-        mCvCountdownView = (CountdownView)findViewById(R.id.cd);
+       // mCvCountdownView = (CountdownView)findViewById(R.id.cd);
+        chronometer = findViewById(R.id.chronometer);
+
 
 
 
@@ -45,12 +49,16 @@ public class DetailsActivity extends AppCompatActivity {
             String id = json.getString("id");
 
             */
+
             place.setText("Place-Name: "+details.getPlace());
             code.setText("Slot-Code: "+details.getSlot_code());
             String[] strings = (details.getTime().split("/"))[1].split(":");
             double time = Float.valueOf(strings[0])*3.6*Math.pow(10,6) + Float.valueOf(strings[1])*60000 ;
-            mCvCountdownView.start((long) time);
+            //mCvCountdownView.start((long) time);
             license.setText(license_num);
+            chronometer.setText(strings[0]+":"+strings[1]);
+            chronometer.start();
+
 
         }catch (Exception e)
         {

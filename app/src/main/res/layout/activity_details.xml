@@ -24,27 +24,14 @@
         android:layout_above="@+id/ll2"
         android:orientation="vertical">
 
-        <cn.iwgang.countdownview.CountdownView
+        <Chronometer android:id="@+id/chronometer"
+            android:format="@string/chronometer_initial_format"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cd"
-            app:isHideTimeBackground="true"
-            app:isShowDay="true"
-            app:isShowHour="true"
-            app:isShowMinute="true"
-            app:isShowSecond="true"
-            app:isShowMillisecond="true"
-            app:timeTextColor="#000000"
-            app:timeTextSize="22sp"
-            app:isTimeTextBold="true"
-            app:suffixGravity="bottom"
-            app:suffixTextColor="#000000"
-            app:suffixTextSize="12sp"
-            app:suffixHour="H"
-            app:suffixMinute="M"
-            app:suffixSecond="S"
-            app:suffixMillisecond="MS" />
-
+            android:layout_weight="0"
+            android:paddingBottom="30dip"
+            android:paddingTop="30dip"
+            />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

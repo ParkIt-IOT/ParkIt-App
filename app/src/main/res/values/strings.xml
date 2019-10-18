@@ -1,4 +1,10 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">ParkIt</string>
     <string name="sub_title">Watch your parking spot</string>
+    <string name="chronometer_start">Start</string>
+    <string name="chronometer_stop">Stop</string>
+    <string name="chronometer_reset">Reset</string>
+    <string name="chronometer_set_format">Set format string</string>
+    <string name="chronometer_clear_format">Clear format string</string>
+    <string name="chronometer_initial_format">Initial format: <xliff:g id="initial-format">%s</xliff:g></string>
 </resources>
