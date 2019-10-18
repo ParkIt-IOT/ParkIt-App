@@ -4,12 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.aryanganotra.parkit.R;
 import com.aryanganotra.parkit.Singleton.SingletonClient;
 import com.braintreepayments.cardform.view.CardForm;
 
 public class PaymentActivity extends AppCompatActivity {
+
+    TextView rec_tv, amt_tv;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +25,12 @@ public class PaymentActivity extends AppCompatActivity {
 
         Log.i("Timeee", String.valueOf(SingletonClient.getInstance().getDetails().getFinal_time()));
 
-        CardForm cardForm = (CardForm) findViewById(R.id.card_form);
+        rec_tv = findViewById(R.id.rec_tv);
+        amt_tv = findViewById(R.id.amt_tv);
+
+
+
+        final CardForm cardForm = (CardForm) findViewById(R.id.card_form);
         cardForm.cardRequired(true)
                 .expirationRequired(true)
                 .cvvRequired(true)
@@ -28,5 +40,17 @@ public class PaymentActivity extends AppCompatActivity {
                 .mobileNumberExplanation("SMS is required on this number")
                 .actionLabel("Purchase")
                 .setup(this);
+        //cardForm.validate();
+
+        Button pay_btn = findViewById(R.id.pay_btn);
+        pay_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(cardForm.isValid()){
+
+                }
+            }
+        });
+
     }
 }

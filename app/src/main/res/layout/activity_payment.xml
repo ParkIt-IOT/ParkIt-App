@@ -7,6 +7,8 @@
     android:padding="10dp"
     tools:context=".Screens.PaymentActivity">
 
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,13 +17,69 @@
         android:layout_alignParentTop="true"
         android:id="@+id/title"
         android:textSize="40sp"
+        android:layout_marginBottom="10dp"
         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ll"
+        android:layout_below="@id/title"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Sub_Title"
+            android:textSize="50sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold|italic"
+            android:layout_weight="1"
+            android:id="@+id/amt_tv"
+            android:text="Rs 60"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Sub_Title"
+            android:layout_weight="1"
+            android:textColor="@color/green"
+            android:textStyle="bold"
+            android:text="Receipt"
+            android:id="@+id/rec_tv"
+            android:layout_gravity="center"
+            android:gravity="center"
+
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll"
+        android:layout_above="@+id/pay_btn">
 
     <com.braintreepayments.cardform.view.CardForm
         android:id="@+id/card_form"
         android:layout_width="match_parent"
-        android:layout_below="@+id/title"
-        android:layout_height="match_parent" />
+        android:layout_margin="10dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+
+        />
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pay"
+
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/pay_btn" />
+
 
 
 
