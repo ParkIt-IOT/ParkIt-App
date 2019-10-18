@@ -12,6 +12,12 @@ public class SingletonClient {
     private MutableLiveData<Integer> vacant = new MutableLiveData<>();
     private MutableLiveData<String> license_num = new MutableLiveData<>();
     private MutableLiveData<String> license_num_status = new MutableLiveData<>();
+    private MutableLiveData<Boolean> connection_status = new MutableLiveData<>();
+
+    public MutableLiveData<Boolean> getConnectionStatus () {
+        return connection_status;
+    }
+
 
     public MutableLiveData<Integer> getVacant () {
         return vacant;

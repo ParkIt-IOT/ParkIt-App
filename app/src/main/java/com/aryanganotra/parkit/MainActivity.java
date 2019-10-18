@@ -1,6 +1,7 @@
 package com.aryanganotra.parkit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,16 +19,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ProgressBar pb = findViewById(R.id.progress_bar);
-
-        SingletonClient.getInstance();
-
-        Button bt = (Button) findViewById(R.id.bt);
+        final ProgressBar pb = findViewById(R.id.progress_bar);
+        final Button bt = (Button) findViewById(R.id.bt);
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ListActivity.class));
             }
         });
+
+        SingletonClient.getInstance();
+
+        SingletonClient.getInstance().getConnectionStatus().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if(aBoolean){
+                    pb.setVisibility(View.GONE);
+                    bt.setVisibility(View.VISIBLE);
+
+                }
+            }
+        });
+
+
     }
 }
