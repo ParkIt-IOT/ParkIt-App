@@ -3,6 +3,7 @@ package com.aryanganotra.parkit.Screens;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Chronometer;
 import android.widget.TextView;
@@ -53,10 +54,9 @@ public class DetailsActivity extends AppCompatActivity {
             place.setText("Place-Name: "+details.getPlace());
             code.setText("Slot-Code: "+details.getSlot_code());
             String[] strings = (details.getTime().split("/"))[1].split(":");
-            double time = Float.valueOf(strings[0])*3.6*Math.pow(10,6) + Float.valueOf(strings[1])*60000 ;
+            double time = Float.valueOf(strings[0])*3600 + Float.valueOf(strings[1])*60 ;
             //mCvCountdownView.start((long) time);
             license.setText(license_num);
-            chronometer.setText(strings[0]+":"+strings[1]);
             chronometer.start();
 
 
