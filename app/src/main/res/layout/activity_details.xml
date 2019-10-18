@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".Screens.DetailsActivity">
 
     <TextView
@@ -40,7 +41,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Slots available:"
+            android:text="Place:"
             android:textAppearance="@style/Sub_Title"
             android:textSize="20sp"
 
@@ -51,7 +52,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Slots available:"
+            android:text="License Number:"
             android:textAppearance="@style/Sub_Title"
             android:textSize="20sp"
 
@@ -62,7 +63,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Slots available:"
+            android:text="Slot Code:"
             android:textAppearance="@style/Sub_Title"
             android:textSize="20sp"
 
