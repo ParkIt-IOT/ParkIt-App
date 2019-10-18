@@ -40,8 +40,8 @@ public class DetailsActivity extends AppCompatActivity {
             String id = json.getString("id");
 
             */
-            place.setText(details.getPlace());
-            code.setText(details.getSlot_code());
+            place.setText("Place-Name: "+details.getPlace());
+            code.setText("Slot-Code: "+details.getSlot_code());
             license.setText(license_num);
 
         }catch (Exception e)
