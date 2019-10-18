@@ -61,6 +61,13 @@ public class NumberPlate extends AppCompatActivity {
             }
         });
 
+        SingletonClient.getInstance().getLicense_num_status().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+
+            }
+        });
+
 
 
 
