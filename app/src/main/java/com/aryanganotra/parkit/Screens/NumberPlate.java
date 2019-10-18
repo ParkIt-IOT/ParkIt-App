@@ -109,6 +109,10 @@ public class NumberPlate extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
                 details = result.getContents();
+                Intent intent = new Intent(NumberPlate.this, DetailsActivity.class);
+                intent.putExtra("content",details);
+                intent.putExtra("license_num",SingletonClient.getInstance().getLicense_num().getValue());
+                startActivity(intent);
 
             }
         } else {
