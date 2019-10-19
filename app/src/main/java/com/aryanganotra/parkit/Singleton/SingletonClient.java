@@ -48,7 +48,7 @@ public class SingletonClient {
         return instance;
     }
 
-    private Client client = new Client("192.168.31.13",10000);
+    private Client client = new Client("192.168.43.103",10000);
 
     public  Client getClient(){
         return client;

@@ -14,6 +14,8 @@ import com.aryanganotra.parkit.R;
 import com.aryanganotra.parkit.Singleton.SingletonClient;
 import com.braintreepayments.cardform.view.CardForm;
 
+import org.w3c.dom.Text;
+
 public class PaymentActivity extends AppCompatActivity {
 
     TextView rec_tv, amt_tv;
@@ -33,6 +35,14 @@ public class PaymentActivity extends AppCompatActivity {
         final Dialog dialog = new Dialog(PaymentActivity.this, R.style.Dialog);
         dialog.setContentView(R.layout.details_dialog);
         dialog.setTitle("Receipt");
+        TextView amt_tv = dialog.findViewById(R.id.amt_tv);
+        TextView gst_tv = dialog.findViewById(R.id.gst_tv);
+        TextView total_tv = dialog.findViewById(R.id.total_tv);
+        TextView place_tv = dialog.findViewById(R.id.place);
+        TextView order_id = dialog.findViewById(R.id.id_tv);
+        TextView slot_code = dialog.findViewById(R.id.slot_code);
+        TextView time = dialog.findViewById(R.id.time_tv);
+        TextView date = dialog.findViewById(R.id.date);
         rec_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
