@@ -42,7 +42,7 @@ public class PaymentActivity extends AppCompatActivity {
         String total_price = "Rs "+String.valueOf(total);
 
 
-        amt_tv.setText(price);
+        amt_tv.setText(total_price);
 
 
         final Dialog dialog = new Dialog(PaymentActivity.this, R.style.Dialog);
