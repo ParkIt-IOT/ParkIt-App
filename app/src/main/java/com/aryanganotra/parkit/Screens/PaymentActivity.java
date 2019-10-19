@@ -34,8 +34,12 @@ public class PaymentActivity extends AppCompatActivity {
 
         rec_tv = findViewById(R.id.rec_tv);
         amt_tv = findViewById(R.id.amt_tv);
+        double price_amt = SingletonClient.getInstance().getDetails().getFinal_time()/100000;
+        double gst_amt = price_amt*0.08;
         price = "Rs "+String.valueOf(SingletonClient.getInstance().getDetails().getFinal_time()/100000);
-        price_gst = "Rs "+String.valueOf((SingletonClient.getInstance().getDetails().getFinal_time()/10000000)*8);
+        price_gst = "Rs "+String.valueOf(gst_amt);
+        double total = price_amt + gst_amt;
+        String total_price = "Rs "+String.valueOf(total);
 
 
         amt_tv.setText(price);
@@ -59,7 +63,7 @@ public class PaymentActivity extends AppCompatActivity {
         date.setText(SingletonClient.getInstance().getDetails().getTime());
         amt_tv_d.setText(price);
         gst_tv.setText(price_gst);
-        total_tv.setText();
+        total_tv.setText(total_price);
 
 
         rec_tv.setOnClickListener(new View.OnClickListener() {
