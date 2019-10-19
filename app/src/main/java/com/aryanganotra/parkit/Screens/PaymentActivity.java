@@ -30,13 +30,13 @@ public class PaymentActivity extends AppCompatActivity {
         rec_tv = findViewById(R.id.rec_tv);
         amt_tv = findViewById(R.id.amt_tv);
 
-        Dialog dialog = new Dialog(PaymentActivity.this);
+        final Dialog dialog = new Dialog(PaymentActivity.this, R.style.Dialog);
         dialog.setContentView(R.layout.details_dialog);
         dialog.setTitle("Receipt");
         rec_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                    dialog.show();
             }
         });
 

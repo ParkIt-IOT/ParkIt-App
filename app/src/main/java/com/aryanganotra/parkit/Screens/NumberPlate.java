@@ -34,6 +34,8 @@ public class NumberPlate extends AppCompatActivity {
         final TextView vacant_tv = findViewById(R.id.slot_vacant);
         final ProgressBar pb = findViewById(R.id.progress_bar);
         final Button scan_btn = findViewById(R.id.qr_btn);
+        scan_btn.setVisibility(View.GONE);
+       // SingletonClient.getInstance().getLicense_num().setValue();
         submt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

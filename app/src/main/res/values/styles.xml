@@ -27,6 +27,14 @@
     </style>
 
 
+    <style name="Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:background">@color/windowBackground</item>
+    </style>
+
+
     <style name="Sub_Title" parent="Widget.AppCompat.AutoCompleteTextView">
         <item name="android:textColor">@color/textColorPrimary</item>
         <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif-light</item>
