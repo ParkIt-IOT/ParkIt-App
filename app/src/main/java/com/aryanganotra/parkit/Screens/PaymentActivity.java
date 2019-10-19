@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,10 +37,10 @@ public class PaymentActivity extends AppCompatActivity {
         amt_tv = findViewById(R.id.amt_tv);
         double price_amt = SingletonClient.getInstance().getDetails().getFinal_time()/100000;
         double gst_amt = price_amt*0.08;
-        price = "Rs "+String.valueOf(SingletonClient.getInstance().getDetails().getFinal_time()/100000);
-        price_gst = "Rs "+String.valueOf(gst_amt);
+        price = "Rs "+String.valueOf(Math.round(price_amt));
+        price_gst = "Rs "+String.valueOf(Math.round(gst_amt));
         double total = price_amt + gst_amt;
-        String total_price = "Rs "+String.valueOf(total);
+        String total_price = "Rs "+String.valueOf(Math.round(total));
 
 
         amt_tv.setText(total_price);
@@ -91,8 +92,10 @@ public class PaymentActivity extends AppCompatActivity {
         pay_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(cardForm.isValid()){
 
+                    startActivity(new Intent(PaymentActivity.this, FinalActivity.class));
                 }
             }
         });

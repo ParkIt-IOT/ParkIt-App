@@ -22,12 +22,15 @@ import com.google.zxing.integration.android.IntentResult;
 public class NumberPlate extends AppCompatActivity {
 
     private String details;
+    private TextView slots_availability;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_number_plate);
        // getSupportActionBar().setTitle("Book");
+
+        slots_availability = findViewById(R.id.slot_availability);
 
         Button submt = findViewById(R.id.submt_btn);
         final EditText licence_num = findViewById(R.id.license_num);
@@ -71,6 +74,9 @@ public class NumberPlate extends AppCompatActivity {
                     @Override
                     public void run() {
                         vacant_tv.setText("Slots available: "+String.valueOf(integer));
+                        if (integer > 0){
+
+                        }
                     }
                 });
             }

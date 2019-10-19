@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Screens.PaymentActivity"></activity>
+        <activity android:name=".Screens.FinalActivity"></activity>
+        <activity android:name=".Screens.PaymentActivity" />
         <activity android:name=".Screens.DetailsActivity" />
         <activity android:name=".Screens.NumberPlate" />
         <activity android:name=".Screens.ListActivity" />
