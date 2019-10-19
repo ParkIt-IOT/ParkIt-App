@@ -16,9 +16,12 @@ import com.braintreepayments.cardform.view.CardForm;
 
 import org.w3c.dom.Text;
 
+import java.util.concurrent.TimeUnit;
+
 public class PaymentActivity extends AppCompatActivity {
 
     TextView rec_tv, amt_tv;
+    String price, price_gst;
 
 
 
@@ -31,11 +34,17 @@ public class PaymentActivity extends AppCompatActivity {
 
         rec_tv = findViewById(R.id.rec_tv);
         amt_tv = findViewById(R.id.amt_tv);
+        price = "Rs "+String.valueOf(SingletonClient.getInstance().getDetails().getFinal_time()/100000);
+        price_gst = "Rs "+String.valueOf((SingletonClient.getInstance().getDetails().getFinal_time()/10000000)*8);
+
+
+        amt_tv.setText(price);
+
 
         final Dialog dialog = new Dialog(PaymentActivity.this, R.style.Dialog);
         dialog.setContentView(R.layout.details_dialog);
         dialog.setTitle("Receipt");
-        TextView amt_tv = dialog.findViewById(R.id.amt_tv);
+        TextView amt_tv_d = dialog.findViewById(R.id.amt_tv);
         TextView gst_tv = dialog.findViewById(R.id.gst_tv);
         TextView total_tv = dialog.findViewById(R.id.total_tv);
         TextView place_tv = dialog.findViewById(R.id.place);
@@ -43,6 +52,16 @@ public class PaymentActivity extends AppCompatActivity {
         TextView slot_code = dialog.findViewById(R.id.slot_code);
         TextView time = dialog.findViewById(R.id.time_tv);
         TextView date = dialog.findViewById(R.id.date);
+        place_tv.setText(SingletonClient.getInstance().getDetails().getPlace());
+        slot_code.setText(SingletonClient.getInstance().getDetails().getSlot_code());
+        order_id.setText(SingletonClient.getInstance().getDetails().getId());
+        time.setText(changeTimeFormat(SingletonClient.getInstance().getDetails().getFinal_time()));
+        date.setText(SingletonClient.getInstance().getDetails().getTime());
+        amt_tv_d.setText(price);
+        gst_tv.setText(price_gst);
+        total_tv.setText();
+
+
         rec_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +79,7 @@ public class PaymentActivity extends AppCompatActivity {
                 .postalCodeRequired(true)
                 .mobileNumberRequired(true)
                 .mobileNumberExplanation("SMS is required on this number")
-                .actionLabel("Purchase")
+                .actionLabel("Pay")
                 .setup(this);
         //cardForm.validate();
 
@@ -76,5 +95,14 @@ public class PaymentActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private String changeTimeFormat(double millis){
+
+        String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours((long)millis),
+                TimeUnit.MILLISECONDS.toMinutes((long)millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours((long)millis)),
+                TimeUnit.MILLISECONDS.toSeconds((long)millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long)millis)));
+
+        return hms;
     }
 }
