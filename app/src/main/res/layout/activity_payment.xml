@@ -47,6 +47,7 @@
             android:textStyle="bold"
             android:text="Receipt"
             android:id="@+id/rec_tv"
+            android:onClick="onClick"
             android:layout_gravity="center"
             android:gravity="center"
 

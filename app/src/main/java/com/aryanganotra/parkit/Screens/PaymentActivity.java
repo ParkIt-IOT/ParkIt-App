@@ -1,7 +1,9 @@
 package com.aryanganotra.parkit.Screens;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +30,13 @@ public class PaymentActivity extends AppCompatActivity {
         rec_tv = findViewById(R.id.rec_tv);
         amt_tv = findViewById(R.id.amt_tv);
 
+        rec_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog = new Dialog(PaymentActivity.this);
+            }
+        });
+
 
 
         final CardForm cardForm = (CardForm) findViewById(R.id.card_form);
@@ -51,6 +60,8 @@ public class PaymentActivity extends AppCompatActivity {
                 }
             }
         });
+
+
 
     }
 }
