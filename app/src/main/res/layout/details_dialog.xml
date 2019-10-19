@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="20dp"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/date"
+        android:text="20-10-19/14:30"
+        android:textAppearance="@style/Sub_Title"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Order- ID"
+            android:textAppearance="@style/Sub_Title"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/colorAccent"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/id_tv"
+            android:text="A2"
+            android:layout_weight="1"
+            android:textAppearance="@style/Sub_Title"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Place"
+        android:textAppearance="@style/Sub_Title"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:textColor="@color/colorAccent"
+        android:layout_margin="20dp"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/place"
+            android:text="Ambience Mall"
+            android:layout_weight="1"
+            android:textAppearance="@style/Sub_Title"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Slot Code"
+            android:textAppearance="@style/Sub_Title"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/colorAccent"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/slot_code"
+            android:text="A201"
+            android:layout_weight="1"
+            android:textAppearance="@style/Sub_Title"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Time"
+            style="@style/Sub_Title"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:textColor="@color/colorAccent"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/time_tv"
+            android:text="Ambience Mall"
+            android:layout_weight="1"
+            style="@style/Sub_Title"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
