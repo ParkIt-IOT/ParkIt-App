@@ -157,7 +157,117 @@
             />
 
 
+
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="end"
+        android:layout_margin="20dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount: "
+            android:textAppearance="@style/Sub_Title"
+            android:layout_gravity="center"
+
+
+
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/amt_tv"
+            android:text="Rs. 55"
+            android:textAppearance="@style/Sub_Title"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GST 8%: "
+            style="@style/Sub_Title"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gst_tv"
+            android:text="Rs. 5"
+            style="@style/Sub_Title"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total: "
+                android:textAppearance="@style/Sub_Title"
+                android:layout_gravity="center"
+
+
+
+                android:textStyle="bold"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/total_tv"
+                android:text="Rs. 60"
+                android:textAppearance="@style/Sub_Title"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 
 
