@@ -37,6 +37,8 @@ public class NumberPlate extends AppCompatActivity {
         final TextView vacant_tv = findViewById(R.id.slot_vacant);
         final ProgressBar pb = findViewById(R.id.progress_bar);
         final Button scan_btn = findViewById(R.id.qr_btn);
+
+        //scan_btn.setVisibility(View.VISIBLE);
         scan_btn.setVisibility(View.GONE);
        // SingletonClient.getInstance().getLicense_num().setValue();
         submt.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +77,12 @@ public class NumberPlate extends AppCompatActivity {
                     public void run() {
                         vacant_tv.setText("Slots available: "+String.valueOf(integer));
                         if (integer > 0){
-
+                            slots_availability.setText("Yayy! Parking slots available");
+                            slots_availability.setTextColor(getColor(R.color.green));
+                        }
+                        else{
+                            slots_availability.setText("Oops! No Slot available");
+                            slots_availability.setTextColor(getColor(R.color.colorPrimary));
                         }
                     }
                 });
@@ -92,10 +99,16 @@ public class NumberPlate extends AppCompatActivity {
         SingletonClient.getInstance().getLicense_num_status().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                pb.setVisibility(View.GONE);
-                scan_btn.setVisibility(View.VISIBLE);
-                Toast.makeText(NumberPlate.this,s, Toast.LENGTH_LONG).show();
-                Log.i("ConnectionSocket",s);
+                if(licence_num.getText()!=null) {
+                    pb.setVisibility(View.GONE);
+                    scan_btn.setVisibility(View.VISIBLE);
+                    Toast.makeText(NumberPlate.this, s, Toast.LENGTH_LONG).show();
+                    Log.i("ConnectionSocket", s);
+                }
+                else{
+                    pb.setVisibility(View.GONE);
+                    scan_btn.setVisibility(View.GONE);
+                }
             }
         });
 

@@ -62,11 +62,11 @@ public class Client implements Runnable {
                     }
                     if (msg.startsWith("license_status")){
 
-                        if(!msg.equals(SingletonClient.getInstance().getLicense_num_status().getValue()))
+                        Log.i("ConnectionStatus",msg);
                             SingletonClient.getInstance().getLicense_num_status().postValue(msg.substring(15));
                     }
                     if (msg.startsWith("connec")){
-
+                        Log.i("ConnectionStatus",msg);
                             SingletonClient.getInstance().getConnectionStatus().postValue(true);
                     }
 

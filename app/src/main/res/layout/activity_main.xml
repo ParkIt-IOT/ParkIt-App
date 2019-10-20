@@ -27,6 +27,19 @@
         android:src="@drawable/images"/>
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Connecting to server.. Please wait."
+        android:textColor="@color/colorPrimary"
+        android:layout_above="@+id/progress_bar"
+        android:textAppearance="@style/Sub_Title"
+        android:textSize="15sp"
+        android:id="@+id/status_tv"
+        android:gravity="center"
+        />
+
+
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

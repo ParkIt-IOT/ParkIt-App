@@ -93,10 +93,10 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(cardForm.isValid()){
+
 
                     startActivity(new Intent(PaymentActivity.this, FinalActivity.class));
-                }
+
             }
         });
 
